@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fc3d044e-edf0-40a5-9ff6-d47a1f066f69": {
+      "ProjectGuid": "fc3d044e-edf0-40a5-9ff6-d47a1f066f69",
+      "DisplayName": "PetAdopterAPI",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
