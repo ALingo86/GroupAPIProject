@@ -171,7 +171,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\isDeclawed.cs" />
-    <Compile Include="Models\Declawed.cs" />
     <Compile Include="Models\DogTable.cs" />
     <Compile Include="Models\ExoticTable.cs" />
     <Compile Include="Models\Hypoallergenic.cs" />

@@ -49,7 +49,6 @@ namespace PetAdopterAPI.Models
             PetFriendly = petFriendly;
             Hypoallergenic = hypoallergenic;
             IsDeclawed = isdeClawed;
-            IsDeclawed = isDeclawed;
             Shelter = model;
         }
 

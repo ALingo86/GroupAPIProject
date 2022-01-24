@@ -64,10 +64,10 @@ namespace PetAdopterAPI.Controllers
 
         // GET By Breed
         // api/Dog/{breed}
-        [HttpGet]
-        public async Task<IHttpActionResult> GetByBreed([FromUri] string breed)
-        {
-            DogTable dog = await _dog.Dogs.FindAsync(breed);
-        }
+        //[HttpGet]
+        // public async Task<IHttpActionResult> GetByBreed([FromUri] string breed)
+       // {
+      //      DogTable dog = await _dog.Dogs.FindAsync(breed);
+      //  }
     }
 }

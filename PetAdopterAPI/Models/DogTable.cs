@@ -53,8 +53,8 @@ namespace PetAdopterAPI.Models
 
         public virtual Shelter shelter { get; set; }
 
+      
         public DogTable(string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate, bool isAdoptionPending, bool isKidFriendly, bool isPetFriendly, bool isHypoallergenic, string location)
-        public DogTable(string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate, bool adoptionPending, bool iskidFriendly, bool ispetFriendly, bool ishypoallergenic, string location)
         {
             Name = name;
             Breed = breed;
@@ -64,10 +64,6 @@ namespace PetAdopterAPI.Models
             IsKidFriendly = isKidFriendly;
             IsPetFriendly = isPetFriendly;
             IsHypoallergenic = isHypoallergenic;
-            IsAdoptionPending = adoptionPending;
-            IsKidFriendly = iskidFriendly;
-            IsPetFriendly = ispetFriendly;
-            IsHypoallergenic = ishypoallergenic;
             Location = location;
         }
     }
