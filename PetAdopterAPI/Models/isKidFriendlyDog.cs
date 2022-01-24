@@ -8,5 +8,6 @@ namespace PetAdopterAPI.Models
 {
     public class isKidFriendlyDog
     {
+
     }
 }
