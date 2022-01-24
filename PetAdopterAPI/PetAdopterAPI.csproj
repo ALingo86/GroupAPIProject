@@ -162,13 +162,18 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShelterController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Declawed.cs" />
+    <Compile Include="Models\DogTable.cs" />
     <Compile Include="Models\ExoticTable.cs" />
+    <Compile Include="Models\Hypoallergenic.cs" />
     <Compile Include="Models\isKidFriendlyCat.cs" />
     <Compile Include="Models\isKidFriendlyDog.cs" />
     <Compile Include="Models\isKidFriendlyExotic.cs" />
