@@ -5,7 +5,8 @@ using System.Web;
 
 namespace PetAdopterAPI.Models
 {
-    public class isDeclawed
+    public class Declawed
     {
+
     }
 }
