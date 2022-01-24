@@ -52,7 +52,7 @@ namespace PetAdopterAPI.Controllers
             cat.PetFriendly = model.PetFriendly;
             cat.Hypoallergenic = model.Hypoallergenic;
             cat.IsDeclawed = model.IsDeclawed;
-            cat.Shelter = model.Shelter;
+            cat.ShelterId = model.ShelterId;
             await _cat.SaveChangesAsync();
             return Ok($"{cat} has been updated!");
         }
