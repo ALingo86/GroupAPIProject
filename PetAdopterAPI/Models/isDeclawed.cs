@@ -6,7 +6,7 @@ using System.Web;
 
 namespace PetAdopterAPI.Models
 {
-    public class Declawed
+    public class isDeclawed
     {
         [ForeignKey(nameof(CatTable))]
         public bool IsDeclawed { get; set; }
