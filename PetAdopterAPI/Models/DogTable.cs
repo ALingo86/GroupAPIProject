@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace PetAdopterAPI.Controllers
+namespace PetAdopterAPI.Models
 {
     public class DogTable
     {
@@ -53,16 +53,16 @@ namespace PetAdopterAPI.Controllers
 
         public virtual Shelter shelter { get; set; }
 
-        public DogTable(string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate, bool adoptionPending, bool iskidFriendly, bool ispetFriendly, bool ishypoallergenic, string location)
+        public DogTable(string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate, bool adoptionPending, bool kidFriendly, bool petFriendly, bool hypoallergenic, string location)
         {
             Name = name;
             Breed = breed;
             Sex = sex;
             BirthDate = birthDate;
-            IsAdoptionPending = adoptionPending;
-            IsKidFriendly = iskidFriendly;
-            IsPetFriendly = ispetFriendly;
-            IsHypoallergenic = ishypoallergenic;
+            AdoptionPending = adoptionPending;
+            KidFriendly = kidFriendly;
+            PetFriendly = petFriendly;
+            Hypoallergenic = hypoallergenic;
             Location = location;
         }
     }
