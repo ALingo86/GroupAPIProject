@@ -1,2 +1,0 @@
-# GroupAPIProject
-Group API Project
