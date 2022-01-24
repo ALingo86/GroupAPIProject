@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace PetAdopterAPI.Controllers
+namespace PetAdopterAPI.Models
 {
     public class DogTable
     {
@@ -37,15 +37,15 @@ namespace PetAdopterAPI.Controllers
 
         }
 
-        public bool AdoptionPending { get; set; }
+        public bool IsAdoptionPending { get; set; }
 
-        public bool KidFriendly { get; set; }
+        public bool IsKidFriendly { get; set; }
 
-        public bool PetFriendly { get; set; }
+        public bool IsPetFriendly { get; set; }
 
-        public bool Hypoallergenic { get; set; }
+        public bool IsHypoallergenic { get; set; }
 
-        public bool HouseTrained { get; set; }
+        public bool IsHouseTrained { get; set; }
 
 
         [ForeignKey(nameof(Shelter))]
@@ -53,16 +53,16 @@ namespace PetAdopterAPI.Controllers
 
         public virtual Shelter shelter { get; set; }
 
-        public DogTable(string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate, bool adoptionPending, bool kidFriendly, bool petFriendly, bool hypoallergenic, string location)
+        public DogTable(string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate, bool isAdoptionPending, bool isKidFriendly, bool isPetFriendly, bool isHypoallergenic, string location)
         {
             Name = name;
             Breed = breed;
             Sex = sex;
             BirthDate = birthDate;
-            AdoptionPending = adoptionPending;
-            KidFriendly = kidFriendly;
-            PetFriendly = petFriendly;
-            Hypoallergenic = hypoallergenic;
+            IsAdoptionPending = isAdoptionPending;
+            IsKidFriendly = isKidFriendly;
+            IsPetFriendly = isPetFriendly;
+            IsHypoallergenic = isHypoallergenic;
             Location = location;
         }
     }
