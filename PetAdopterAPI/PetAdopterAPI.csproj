@@ -168,8 +168,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Declawed.cs" />
     <Compile Include="Models\DogTable.cs" />
+    <Compile Include="Models\ExoticTable.cs" />
     <Compile Include="Models\Hypoallergenic.cs" />
+    <Compile Include="Models\isKidFriendlyCat.cs" />
+    <Compile Include="Models\isKidFriendlyDog.cs" />
+    <Compile Include="Models\isKidFriendlyExotic.cs" />
+    <Compile Include="Models\isPetFriendlyExotic.cs" />
+    <Compile Include="Models\LegalInCity.cs" />
     <Compile Include="Models\Shelter.cs" />
     <Compile Include="Models\CatTable.cs" />
     <Compile Include="Models\PetAdopterDbContext.cs" />

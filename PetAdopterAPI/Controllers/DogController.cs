@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetAdopterAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,7 +11,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class DogController : ApiController
     {
-        private readonly DogDbContext _dog = new DogDbContext();
+        private readonly PetAdopterDbContext _dog = new PetAdopterDbContext();
 
         // POST (create)
         // api/Dog
@@ -26,7 +27,7 @@ namespace PetAdopterAPI.Controllers
             if (ModelState.IsValid)
             {
                 // Store in the database
-                _dog.Dog.Add(model);
+                _dog.Dogs.Add(model);
                 int changeCount = await _dog.SaveChangesAsync();
 
                 return Ok("Ready to adopt!");
@@ -41,7 +42,7 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetAll()
         {
-            List<DogTable> dogs = await _dog.Dog.ToListAsync();
+            List<DogTable> dogs = await _dog.Dogs.ToListAsync();
             return Ok(dogs);
         }
 
@@ -50,7 +51,7 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetById([FromUri] int id)
         {
-            DogTable dog = await _dog.Dog.FindAsync(id);
+            DogTable dog = await _dog.Dogs.FindAsync(id);
 
             if (dog != null)
             {
@@ -65,7 +66,7 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetByBreed([FromUri] string breed)
         {
-            DogTable dog = await _dog.Dog.FindAsync(breed);
+            DogTable dog = await _dog.Dogs.FindAsync(breed);
         }
     }
 }
