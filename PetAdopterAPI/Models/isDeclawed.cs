@@ -16,10 +16,24 @@ namespace PetAdopterAPI.Models
         [ForeignKey(nameof(CatTable))]
         public string Breed { get; set; }
         [ForeignKey(nameof(CatTable))]
+        public string Sex { get; set; }
+        [ForeignKey(nameof(CatTable))]
         public float Age { get; }
+        [ForeignKey(nameof(CatTable))]
+        public bool AdoptionPending { get; set; }
         [ForeignKey(nameof(Shelter))]
-        public string ShelterId { set; get; }
 
+        public isDeclawed() { }
+        public isDeclawed(string name, string breed, string sex,float age, bool adoptionPending, bool isDeclawed, int shelterId)
+        {
+            Name = name;
+            Breed = breed;
+            Sex = sex;
+            Age = age;
+            AdoptionPending = adoptionPending;
+            IsDeclawed = isDeclawed;
+            ShelterId = shelterId;
+        }
 
 
     }

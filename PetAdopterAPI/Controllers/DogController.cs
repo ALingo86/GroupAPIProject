@@ -15,7 +15,7 @@ namespace PetAdopterAPI.Controllers
         private readonly PetAdopterDbContext _dog = new PetAdopterDbContext();
 
         // POST (create)
-        // api/Dog
+        // api/Dogs
         [HttpPost]
         public async Task<IHttpActionResult> CreateDog([FromBody] DogTable model)
         {
@@ -39,7 +39,7 @@ namespace PetAdopterAPI.Controllers
         }
 
         // GET ALL
-        // api/Dog
+        // api/Dogs
         [HttpGet]
         public async Task<IHttpActionResult> GetAll()
         {
@@ -48,7 +48,7 @@ namespace PetAdopterAPI.Controllers
         }
 
         // GET By ID
-        // api/Dog/{id}
+        // api/Dogs/{id}
         [HttpGet]
         public async Task<IHttpActionResult> GetById([FromUri] int id)
         {
@@ -64,10 +64,10 @@ namespace PetAdopterAPI.Controllers
 
         // GET By Breed
         // api/Dog/{breed}
-        //[HttpGet]
-        // public async Task<IHttpActionResult> GetByBreed([FromUri] string breed)
-       // {
-      //      DogTable dog = await _dog.Dogs.FindAsync(breed);
-      //  }
+        [HttpGet]
+        public async Task<IHttpActionResult> GetByBreed([FromUri] string breed)
+        {
+            DogTable dog = await _dog.Dog.FindAsync(breed);
+        }
     }
 }
