@@ -33,10 +33,10 @@ namespace PetAdopterAPI.Models
         public bool KidFriendly { get; set; }
         public bool PetFriendly { get; set; }
         public bool Hypoallergenic { get; set; }
-        public bool Declawed { get; set; }
+        public bool IsDeclawed { get; set; }
         [ForeignKey(nameof(Shelter))]
-        public string Location { get; set; }
-        public CatTable (string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate,  bool adoptionPending, bool kidFriendly, bool petFriendly, bool hypoallergenic, bool deClawed, string location )
+        public Shelter Shelter { get; set; }
+        public CatTable (string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate,  bool adoptionPending, bool kidFriendly, bool petFriendly, bool hypoallergenic, bool isDeclawed, Shelter model )
         {
             Name = name;
             Breed = breed;
@@ -46,8 +46,8 @@ namespace PetAdopterAPI.Models
             KidFriendly = kidFriendly;
             PetFriendly = petFriendly;
             Hypoallergenic = hypoallergenic;
-            Declawed = deClawed;
-            Location = location;
+            IsDeclawed = isDeclawed;
+            Shelter = model;
         }
 
     }
