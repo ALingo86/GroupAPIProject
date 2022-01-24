@@ -21,7 +21,7 @@ namespace PetAdopterAPI.Controllers
         {
             if (model is null)
             {
-                return BadRequest("You new a request body");
+                return BadRequest("You need a request body");
             }
             if (ModelState.IsValid)
             {
