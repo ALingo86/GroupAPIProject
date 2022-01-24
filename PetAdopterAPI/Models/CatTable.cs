@@ -36,6 +36,19 @@ namespace PetAdopterAPI.Models
         public bool Declawed { get; set; }
         [ForeignKey(nameof(Shelter))]
         public string Location { get; set; }
+        public CatTable (string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate,  bool adoptionPending, bool kidFriendly, bool petFriendly, bool hypoallergenic, bool deClawed, string location )
+        {
+            Name = name;
+            Breed = breed;
+            Sex = sex;
+            Birthdate = birthDate;
+            AdoptionPending = adoptionPending;
+            KidFriendly = kidFriendly;
+            PetFriendly = petFriendly;
+            Hypoallergenic = hypoallergenic;
+            Declawed = deClawed;
+            Location = location;
+        }
 
     }
 }
