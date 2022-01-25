@@ -216,6 +216,7 @@
     <Compile Include="Models\LegalInCity.cs" />
     <Compile Include="Models\Shelter.cs" />
     <Compile Include="Models\PetAdopterDbContext.cs" />
+    <Compile Include="Models\AdoptorTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
