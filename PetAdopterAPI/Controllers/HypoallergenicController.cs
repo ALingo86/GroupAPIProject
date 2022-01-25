@@ -11,7 +11,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class HypoallergenicController : ApiController
     {
-        private readonly PetAdopterDbContext _dog = new PetAdopterDbContext();
+        private readonly ApplicationDbContext _dog = new ApplicationDbContext();
 
         // GET by HypoAllergenic
         // api/Dogs/{isHypoallergenic}

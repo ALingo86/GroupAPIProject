@@ -11,7 +11,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class ExoticController : ApiController
     {
-        private readonly PetAdopterDbContext _exotic = new PetAdopterDbContext();
+        private readonly ApplicationDbContext _exotic = new ApplicationDbContext();
 
         //create
         [HttpPost]
