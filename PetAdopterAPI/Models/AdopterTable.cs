@@ -6,7 +6,7 @@ using System.Web;
 
 namespace PetAdopterAPI.Models
 {
-    public class AdoptorTable
+    public class AdopterTable
     {
         [Key]
         public int Id { get; set; }
@@ -21,8 +21,8 @@ namespace PetAdopterAPI.Models
         [Required]
         public string PhoneNumber { get; set; }
 
-        public AdoptorTable() { }
-        public AdoptorTable(int id, string firstName, string lastName, string city, string state, string phoneNumber)
+        public AdopterTable() { }
+        public AdopterTable(int id, string firstName, string lastName, string city, string state, string phoneNumber)
         {
             Id = id;
             FirstName = firstName;
