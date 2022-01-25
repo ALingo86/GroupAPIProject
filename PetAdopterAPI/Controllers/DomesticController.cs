@@ -15,9 +15,9 @@ namespace PetAdopterAPI.Controllers
         private readonly PetAdopterDbContext _domestic = new PetAdopterDbContext();
 
         // POST (create)
-        // api/Dogs
+        // api/Domestic
         [HttpPost]
-        public async Task<IHttpActionResult> CreateDog([FromBody] DomesticTable model)
+        public async Task<IHttpActionResult> CreateDomestic([FromBody] DomesticTable model)
         {
             if (model is null)
             {
@@ -39,7 +39,7 @@ namespace PetAdopterAPI.Controllers
         }
 
         // GET ALL
-        // api/Dogs
+        // api/Domestic
         [HttpGet]
         public async Task<IHttpActionResult> GetAll()
         {
@@ -48,15 +48,15 @@ namespace PetAdopterAPI.Controllers
         }
 
         // GET By ID
-        // api/Dogs/{id}
+        // api/Domestic/{id}
         [HttpGet]
         public async Task<IHttpActionResult> GetById([FromUri] int id)
         {
-            DomesticTable dog = await _domestic.Domestics.FindAsync(id);
+            DomesticTable domestic = await _domestic.Domestics.FindAsync(id);
 
-            if (dog != null)
+            if (domestic != null)
             {
-                return Ok(dog);
+                return Ok(domestic);
             }
 
             return NotFound();
@@ -67,11 +67,11 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetByBreed([FromUri] string breed)
         {
-            DogTable dog = await _dog.Dogs.FindAsync(breed);
+            DomesticTable domestic = await _domestic.Domestics.FindAsync(breed);
 
-            if(dog != null)
+            if(domestic != null)
             {
-                return Ok(dog);
+                return Ok(domestic);
             }
 
             return NotFound();
@@ -80,10 +80,10 @@ namespace PetAdopterAPI.Controllers
         // PUT (update)
         // api/Dogs/{id}
         [HttpPut]
-        public async Task<IHttpActionResult> UpdateDog([FromUri] int id, [FromBody] DogTable updatedDog)
+        public async Task<IHttpActionResult> UpdateDomestic([FromUri] int id, [FromBody] DomesticTable updatedDomestic)
         {
             // check to see if ids match
-            if(id != updatedDog?.Id)
+            if(id != updatedDomestic?.Id)
             {
                 return BadRequest("Id does not match.");
             }
@@ -93,27 +93,27 @@ namespace PetAdopterAPI.Controllers
                 return BadRequest(ModelState);
 
             // Find the dog in the database
-            DogTable dog = await _dog.Dogs.FindAsync(id);
+            DomesticTable domestic = await _domestic.Domestics.FindAsync(id);
 
             // If the character doesn't exist
-            if (dog is null)
+            if (domestic is null)
                 return NotFound();
 
             // Update the properties
-            dog.Name = updatedDog.Name;
-            dog.Breed = updatedDog.Breed;
-            dog.Sex = updatedDog.Sex;
-            dog.IsSterile = updatedDog.IsSterile;
-            dog.BirthDate = updatedDog.BirthDate;
-            dog.IsAdoptionPending = updatedDog.IsAdoptionPending;
-            dog.IsKidFriendly = updatedDog.IsKidFriendly;
-            dog.IsPetFriendly = updatedDog.IsPetFriendly;
-            dog.IsHypoallergenic = updatedDog.IsHypoallergenic;
-            dog.IsHouseTrained = updatedDog.IsHouseTrained;
-            dog.Location = dog.Location;
+            domestic.Name = updatedDomestic.Name;
+            domestic.Breed = updatedDomestic.Breed;
+            domestic.Sex = updatedDomestic.Sex;
+            domestic.IsSterile = updatedDomestic.IsSterile;
+            domestic.BirthDate = updatedDomestic.BirthDate;
+            domestic.IsAdoptionPending = updatedDomestic.IsAdoptionPending;
+            domestic.IsKidFriendly = updatedDomestic.IsKidFriendly;
+            domestic.IsPetFriendly = updatedDomestic.IsPetFriendly;
+            domestic.IsHypoallergenic = updatedDomestic.IsHypoallergenic;
+            domestic.IsHouseTrained = updatedDomestic.IsHouseTrained;
+            domestic.ShelterId = updatedDomestic.ShelterId;
 
             // Save the changes
-            await _dog.SaveChangesAsync();
+            await _domestic.SaveChangesAsync();
 
             return Ok("The dog's information has been updated.");
         }
@@ -123,14 +123,14 @@ namespace PetAdopterAPI.Controllers
         [HttpDelete]
         public async Task<IHttpActionResult> DeleteDog([FromUri] int id)
         {
-            DogTable dog = await _dog.Dogs.FindAsync(id);
+            DomesticTable domestic = await _domestic.Domestics.FindAsync(id);
 
-            if (dog is null)
+            if (domestic is null)
                 return NotFound();
 
-            _dog.Dogs.Remove(dog);
+            _domestic.Domestics.Remove(domestic);
 
-            if(await _dog.SaveChangesAsync() == 1)
+            if(await _domestic.SaveChangesAsync() == 1)
             {
                 return Ok("The dog was deleted.");
             }
