@@ -21,7 +21,7 @@ namespace PetAdopterAPI.Controllers
 
         //Post(Create)
         [HttpPost]
-        public async Task<IHttpActionResult> CreateAdopter([FromBody] Adopter model)
+        public async Task<IHttpActionResult> CreateAdopter([FromBody] AdopterTable model)
         {
             if (model is null)
             {
@@ -47,7 +47,7 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetById([FromUri] int id)
         {
-            Adopter adopter = await _context..FindAsync(id);
+            AdopterTable adopter = await _context.Adopters.FindAsync(id);
 
             if (adopter != null)
             {
@@ -58,7 +58,7 @@ namespace PetAdopterAPI.Controllers
 
         //Put (update)
         [HttpPut]
-        public async Task<IHttpActionResult> UpdateAdopter([FromBody] int id, [FromBody] Shelter updatedAdopter)
+        public async Task<IHttpActionResult> UpdateAdopter([FromBody] int id, [FromBody] AdopterTable updatedAdopter)
         {
             if (id != updatedAdopter?.Id)
             {
@@ -67,15 +67,17 @@ namespace PetAdopterAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            Adopter adopter = await _context.Adopters.FindAsync(id);
+            AdopterTable adopter = await _context.Adopters.FindAsync(id);
 
             if (adopter is null)
                 return NotFound();
 
-            adopter.Name = updatedAdopter.Name;
+            adopter.FirstName = updatedAdopter.FirstName;
+            adopter.LastName = updatedAdopter.LastName;
             adopter.State = updatedAdopter.State;
             adopter.City = updatedAdopter.City;
-            adopter.Rating = updatedAdopter.Rating;
+            adopter.PhoneNumber = updatedAdopter.PhoneNumber;
+            
 
             await _context.SaveChangesAsync();
 
@@ -86,11 +88,11 @@ namespace PetAdopterAPI.Controllers
         [HttpDelete]
         public async Task<IHttpActionResult> DeleteAdopter([FromUri] int id)
         {
-            Adopter adopter = await _context.Adopters.FindAsync(id);
+            AdopterTable adopter = await _context.Adopters.FindAsync(id);
             if (adopter is null)
                 return NotFound();
 
-            _context.Adopters.Remove(adopters);
+            _context.Adopters.Remove(adopter);
 
             if (await _context.SaveChangesAsync() == 1)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
             {
