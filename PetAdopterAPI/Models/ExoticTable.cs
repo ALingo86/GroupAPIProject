@@ -45,8 +45,9 @@ namespace PetAdopterAPI.Models
         [Required]
         public bool LegalInCity { get; set; }
         [ForeignKey(nameof(Shelter))]
-        public string Location { get; set; }
-        public ExoticTable(int id, string name, string breed, string species, bool isSterile, DateTime birthdate, float age, bool adoptionPending, bool isKidFriendly, bool isPetFriendly, bool hypoallegernic, bool legalInCity, string location)
+        public int ShelterId { get; set; }
+        public virtual Shelter Shelter { get; set; }
+        public ExoticTable(int id, string name, string breed, string species, bool isSterile, DateTime birthdate, float age, bool adoptionPending, bool isKidFriendly, bool isPetFriendly, bool hypoallegernic, bool legalInCity, int shelterId)
         {
             id = Id;
             name = Name;
@@ -60,7 +61,7 @@ namespace PetAdopterAPI.Models
             isPetFriendly = IsPetFriendly;
             hypoallegernic = Hypoallergenic;
             legalInCity = LegalInCity;
-            location = Location;
+            shelterId = ShelterId;
 
         }
     }
