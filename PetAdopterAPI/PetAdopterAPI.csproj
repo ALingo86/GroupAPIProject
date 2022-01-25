@@ -170,7 +170,7 @@
     <Compile Include="Controllers\ExoticController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HypoallergenicController.cs" />
-    <Compile Include="Controllers\LegalityController.cs" />
+    <Compile Include="Controllers\LegallityController.cs" />
     <Compile Include="Controllers\ShelterController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,12 +178,6 @@
     </Compile>
     <Compile Include="Models\DomesticTable.cs" />
     <Compile Include="Models\ExoticTable.cs" />
-    <Compile Include="Models\Hypoallergenic.cs" />
-    <Compile Include="Models\isKidFriendlyCat.cs" />
-    <Compile Include="Models\isKidFriendlyDog.cs" />
-    <Compile Include="Models\isKidFriendlyExotic.cs" />
-    <Compile Include="Models\isPetFriendlyExotic.cs" />
-    <Compile Include="Models\LegalInCity.cs" />
     <Compile Include="Models\Shelter.cs" />
     <Compile Include="Models\PetAdopterDbContext.cs" />
     <Compile Include="Models\AdoptorTable.cs" />
