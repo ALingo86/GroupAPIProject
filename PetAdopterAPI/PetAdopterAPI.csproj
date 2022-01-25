@@ -176,6 +176,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DomesticTable.cs" />
     <Compile Include="Models\isDeclawed.cs" />
     <Compile Include="Models\DogTable.cs" />
     <Compile Include="Models\ExoticTable.cs" />
