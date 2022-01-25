@@ -107,6 +107,7 @@ namespace PetAdopterAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            // Find the dog in the database
             // Find the pet in the database
             DomesticTable domestic = await _domestic.Domestics.FindAsync(id);
 
