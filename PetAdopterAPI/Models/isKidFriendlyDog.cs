@@ -8,7 +8,5 @@ namespace PetAdopterAPI.Models
 {
     public class isKidFriendlyDog
     {
-        [ForeignKey(nameof(DogTable))]
-        public bool IsKidFriendly { get; set; }
     }
 }

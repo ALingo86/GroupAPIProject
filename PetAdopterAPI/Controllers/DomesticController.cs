@@ -67,7 +67,7 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetByBreed([FromUri] string breed)
         {
-            DomesticTable dog = await _domestic.Domestics.FindAsync(breed);
+            DogTable dog = await _dog.Dogs.FindAsync(breed);
 
             if(dog != null)
             {
@@ -80,7 +80,7 @@ namespace PetAdopterAPI.Controllers
         // PUT (update)
         // api/Dogs/{id}
         [HttpPut]
-        public async Task<IHttpActionResult> UpdateDog([FromUri] int id, [FromBody] DomesticTable updatedDog)
+        public async Task<IHttpActionResult> UpdateDog([FromUri] int id, [FromBody] DogTable updatedDog)
         {
             // check to see if ids match
             if(id != updatedDog?.Id)
@@ -93,7 +93,7 @@ namespace PetAdopterAPI.Controllers
                 return BadRequest(ModelState);
 
             // Find the dog in the database
-            DomesticTable dog = await _domestic.Domestics.FindAsync(id);
+            DogTable dog = await _dog.Dogs.FindAsync(id);
 
             // If the character doesn't exist
             if (dog is null)
@@ -110,13 +110,12 @@ namespace PetAdopterAPI.Controllers
             dog.IsPetFriendly = updatedDog.IsPetFriendly;
             dog.IsHypoallergenic = updatedDog.IsHypoallergenic;
             dog.IsHouseTrained = updatedDog.IsHouseTrained;
-            dog.IsDeclawed = updatedDog.IsDeclawed;
-            dog.ShelterId = updatedDog.ShelterId;
+            dog.Location = dog.Location;
 
             // Save the changes
-            await _domestic.SaveChangesAsync();
+            await _dog.SaveChangesAsync();
 
-            return Ok($"The domestic animal's({updatedDog}) information has been updated.");
+            return Ok("The dog's information has been updated.");
         }
 
         // DELETE
@@ -124,16 +123,16 @@ namespace PetAdopterAPI.Controllers
         [HttpDelete]
         public async Task<IHttpActionResult> DeleteDog([FromUri] int id)
         {
-            DomesticTable dog = await _domestic.Domestics.FindAsync(id);
+            DogTable dog = await _dog.Dogs.FindAsync(id);
 
             if (dog is null)
                 return NotFound();
 
-            _domestic.Domestics.Remove(dog);
+            _dog.Dogs.Remove(dog);
 
-            if(await _domestic.SaveChangesAsync() == 1)
+            if(await _dog.SaveChangesAsync() == 1)
             {
-                return Ok("The domestic animal was deleted.");
+                return Ok("The dog was deleted.");
             }
 
             return InternalServerError();
