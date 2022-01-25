@@ -219,6 +219,7 @@
     <Compile Include="Controllers\ExoticController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HypoallergenicController.cs" />
+    <Compile Include="Controllers\LegallityController.cs" />
     <Compile Include="Controllers\ShelterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -317,6 +318,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202201251637494_Initial Migration.resx">
+      <DependentUpon>202201251637494_Initial Migration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
