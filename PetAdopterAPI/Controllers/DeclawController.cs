@@ -12,7 +12,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class DeclawController : ApiController
     {
-        private readonly PetAdopterDbContext _domestic = new PetAdopterDbContext();
+        private readonly ApplicationDbContext _domestic = new ApplicationDbContext();
         [HttpGet]
         public IHttpActionResult GetDeclawedCats()
         {

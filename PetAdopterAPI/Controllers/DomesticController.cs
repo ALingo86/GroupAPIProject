@@ -12,7 +12,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class DomesticController : ApiController
     {
-        private readonly PetAdopterDbContext _domestic = new PetAdopterDbContext();
+        private readonly ApplicationDbContext _domestic = new ApplicationDbContext();
 
         // POST (create)
         // api/Domestic
@@ -43,8 +43,8 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetAll()
         {
-            List<DomesticTable> dogs = await _domestic.Domestics.ToListAsync();
-            return Ok(dogs);
+            List<DomesticTable> domestics = await _domestic.Domestics.ToListAsync();
+            return Ok(domestics);
         }
 
         // GET By ID
@@ -62,8 +62,23 @@ namespace PetAdopterAPI.Controllers
             return NotFound();
         }
 
+        // Get By Species
+        // api/Domestic/{species}
+        [HttpGet]
+        public async Task<IHttpActionResult> GetBySpecies([FromUri] string species)
+        {
+            DomesticTable domestic = await _domestic.Domestics.FindAsync(species);
+
+            if (domestic != null)
+            {
+                return Ok(domestic);
+            }
+
+            return NotFound();
+        }
+
         // GET By Breed
-        // api/Dogs/{breed}
+        // api/Domestic/{breed}
         [HttpGet]
         public async Task<IHttpActionResult> GetByBreed([FromUri] string breed)
         {
@@ -78,7 +93,7 @@ namespace PetAdopterAPI.Controllers
         }
 
         // PUT (update)
-        // api/Dogs/{id}
+        // api/Domestic/{id}
         [HttpPut]
         public async Task<IHttpActionResult> UpdateDomestic([FromUri] int id, [FromBody] DomesticTable updatedDomestic)
         {
@@ -93,6 +108,7 @@ namespace PetAdopterAPI.Controllers
                 return BadRequest(ModelState);
 
             // Find the dog in the database
+            // Find the pet in the database
             DomesticTable domestic = await _domestic.Domestics.FindAsync(id);
 
             // If the character doesn't exist
@@ -100,6 +116,7 @@ namespace PetAdopterAPI.Controllers
                 return NotFound();
 
             // Update the properties
+            domestic.Species = updatedDomestic.Species;
             domestic.Name = updatedDomestic.Name;
             domestic.Breed = updatedDomestic.Breed;
             domestic.Sex = updatedDomestic.Sex;
@@ -115,13 +132,13 @@ namespace PetAdopterAPI.Controllers
             // Save the changes
             await _domestic.SaveChangesAsync();
 
-            return Ok("The dog's information has been updated.");
+            return Ok("The pet's information has been updated.");
         }
 
         // DELETE
         // api/Dogs/{id}
         [HttpDelete]
-        public async Task<IHttpActionResult> DeleteDog([FromUri] int id)
+        public async Task<IHttpActionResult> DeleteDomestic([FromUri] int id)
         {
             DomesticTable domestic = await _domestic.Domestics.FindAsync(id);
 
@@ -132,7 +149,7 @@ namespace PetAdopterAPI.Controllers
 
             if(await _domestic.SaveChangesAsync() == 1)
             {
-                return Ok("The dog was deleted.");
+                return Ok("The pet was deleted from the database.");
             }
 
             return InternalServerError();

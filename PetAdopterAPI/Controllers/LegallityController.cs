@@ -10,7 +10,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class LegallityController : ApiController
     {
-        private readonly PetAdopterDbContext _exotic = new PetAdopterDbContext();
+        private readonly ApplicationDbContext _exotic = new ApplicationDbContext();
 
         // GET by Legallity
         // api/Dogs/{isLegal}
@@ -21,7 +21,7 @@ namespace PetAdopterAPI.Controllers
             List<ExoticTable> legalExotics = new List<ExoticTable>();
             foreach (ExoticTable exotic in _exotic.Exotics)
             {
-                if (exotic.LegalInCity == true)
+                if (exotic.IsLegalInCity == true)
                 {
                     legalExotics.Add(exotic);
                 }
