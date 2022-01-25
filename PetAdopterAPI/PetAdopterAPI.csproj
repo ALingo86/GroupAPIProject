@@ -165,6 +165,7 @@
     <Compile Include="Controllers\CatController.cs" />
     <Compile Include="Controllers\DeclawController.cs" />
     <Compile Include="Controllers\DogController.cs" />
+    <Compile Include="Controllers\ExoticController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HypoallergenicController.cs" />
     <Compile Include="Controllers\ShelterController.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Models\Shelter.cs" />
     <Compile Include="Models\CatTable.cs" />
     <Compile Include="Models\PetAdopterDbContext.cs" />
+    <Compile Include="Models\AdoptorTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
