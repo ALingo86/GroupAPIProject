@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace PetAdopterAPI.Controllers
 {
-    public class LegalityController : ApiController
+    public class LegallityController : ApiController
     {
     }
 }
