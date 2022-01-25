@@ -196,9 +196,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\CatController.cs" />
     <Compile Include="Controllers\DeclawController.cs" />
-    <Compile Include="Controllers\DogController.cs" />
+    <Compile Include="Controllers\DomesticController.cs" />
     <Compile Include="Controllers\ExoticController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HypoallergenicController.cs" />
@@ -207,8 +206,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\isDeclawed.cs" />
-    <Compile Include="Models\DogTable.cs" />
+    <Compile Include="Models\DomesticTable.cs" />
     <Compile Include="Models\ExoticTable.cs" />
     <Compile Include="Models\Hypoallergenic.cs" />
     <Compile Include="Models\isKidFriendlyCat.cs" />
@@ -217,7 +215,6 @@
     <Compile Include="Models\isPetFriendlyExotic.cs" />
     <Compile Include="Models\LegalInCity.cs" />
     <Compile Include="Models\Shelter.cs" />
-    <Compile Include="Models\CatTable.cs" />
     <Compile Include="Models\PetAdopterDbContext.cs" />
     <Compile Include="Models\AdoptorTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
