@@ -55,7 +55,7 @@ namespace PetAdopterAPI.Models
         [ForeignKey(nameof(Shelter))]
         public int ShelterId { get; set; }
 
-        public virtual Shelter shelter { get; set; }
+        public virtual Shelter Shelter { get; set; }
 
         public DomesticTable(string species, string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate, bool isAdoptionPending, bool isKidFriendly, bool isPetFriendly, bool isHypoallergenic,int shelterId)
         {
