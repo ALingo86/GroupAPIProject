@@ -67,13 +67,13 @@ namespace PetAdopterAPI.Controllers
             exotic.Sex = updatedExotic.Sex;
             exotic.Breed = updatedExotic.Breed;
             exotic.Birthdate = updatedExotic.Birthdate;
-            exotic.AdoptionPending = updatedExotic.AdoptionPending;
+            exotic.IsAdoptionPending = updatedExotic.IsAdoptionPending;
             exotic.IsKidFriendly = updatedExotic.IsKidFriendly;
             exotic.IsPetFriendly = updatedExotic.IsPetFriendly;
-            exotic.LegalInCity = updatedExotic.LegalInCity;
-            exotic.Location = updatedExotic.Location;
+            exotic.IsLegalInCity = updatedExotic.IsLegalInCity;
+            exotic.ShelterId = updatedExotic.ShelterId;
             exotic.Sterile = updatedExotic.Sterile;
-            exotic.Hypoallergenic = updatedExotic.Hypoallergenic;
+            exotic.IsHypoallergenic = updatedExotic.IsHypoallergenic;
 
             await _exotic.SaveChangesAsync();
 
