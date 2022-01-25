@@ -8,7 +8,7 @@ using System.Web;
 
 namespace PetAdopterAPI.Models
 {
-    public class DogTable
+    public class DomesticTable
     {
         [Key]
         public int Id { get; set; }
@@ -46,23 +46,24 @@ namespace PetAdopterAPI.Models
         public bool IsHypoallergenic { get; set; }
 
         public bool IsHouseTrained { get; set; }
+        public bool IsDeclawed { get; set; }
 
 
         [ForeignKey(nameof(Shelter))]
-        public string Location { get; set; }
+        public int ShelterId { get; set; }
 
         public virtual Shelter shelter { get; set; }
 
-        public DogTable(string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate, bool adoptionPending, bool kidFriendly, bool petFriendly, bool hypoallergenic, string location)
+        public DogTable(string name, string breed, string sex, bool isSterile, DateTimeOffset birthDate, bool isAdoptionPending, bool isKidFriendly, bool isPetFriendly, bool isHypoallergenic, string location)
         {
             Name = name;
             Breed = breed;
             Sex = sex;
             BirthDate = birthDate;
-            AdoptionPending = adoptionPending;
-            KidFriendly = kidFriendly;
-            PetFriendly = petFriendly;
-            Hypoallergenic = hypoallergenic;
+            IsAdoptionPending = isAdoptionPending;
+            IsKidFriendly = isKidFriendly;
+            IsPetFriendly = isPetFriendly;
+            IsHypoallergenic = isHypoallergenic;
             Location = location;
         }
     }
