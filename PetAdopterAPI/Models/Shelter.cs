@@ -12,7 +12,6 @@ namespace PetAdopterAPI.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey (nameof(Shelter))]
         public int ShelterId { get; set; }
 
         [Required]

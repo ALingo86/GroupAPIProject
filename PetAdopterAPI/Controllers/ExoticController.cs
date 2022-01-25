@@ -71,7 +71,7 @@ namespace PetAdopterAPI.Controllers
             exotic.IsKidFriendly = updatedExotic.IsKidFriendly;
             exotic.IsPetFriendly = updatedExotic.IsPetFriendly;
             exotic.LegalInCity = updatedExotic.LegalInCity;
-            exotic.Location = updatedExotic.Location;
+            exotic.ShelterId = updatedExotic.ShelterId;
             exotic.Sterile = updatedExotic.Sterile;
             exotic.Hypoallergenic = updatedExotic.Hypoallergenic;
 
