@@ -10,14 +10,14 @@ using System.Web.Http;
 
 namespace PetAdopterAPI.Controllers
 {
-    public class DogController : ApiController
+    public class DomesticController : ApiController
     {
-        private readonly PetAdopterDbContext _dog = new PetAdopterDbContext();
+        private readonly PetAdopterDbContext _domestic = new PetAdopterDbContext();
 
         // POST (create)
         // api/Dogs
         [HttpPost]
-        public async Task<IHttpActionResult> CreateDog([FromBody] DogTable model)
+        public async Task<IHttpActionResult> CreateDog([FromBody] DomesticTable model)
         {
             if (model is null)
             {
@@ -28,8 +28,8 @@ namespace PetAdopterAPI.Controllers
             if (ModelState.IsValid)
             {
                 // Store in the database
-                _dog.Dogs.Add(model);
-                int changeCount = await _dog.SaveChangesAsync();
+                _domestic.Domestics.Add(model);
+                int changeCount = await _domestic.SaveChangesAsync();
 
                 return Ok("Ready to adopt!");
             }
@@ -43,7 +43,7 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetAll()
         {
-            List<DogTable> dogs = await _dog.Dogs.ToListAsync();
+            List<DomesticTable> dogs = await _domestic.Domestics.ToListAsync();
             return Ok(dogs);
         }
 
@@ -52,7 +52,7 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetById([FromUri] int id)
         {
-            DogTable dog = await _dog.Dogs.FindAsync(id);
+            DomesticTable dog = await _domestic.Domestics.FindAsync(id);
 
             if (dog != null)
             {

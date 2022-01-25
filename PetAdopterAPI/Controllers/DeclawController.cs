@@ -12,12 +12,12 @@ namespace PetAdopterAPI.Controllers
 {
     public class DeclawController : ApiController
     {
-        private readonly PetAdopterDbContext _cat = new PetAdopterDbContext();
+        private readonly PetAdopterDbContext _domestic = new PetAdopterDbContext();
         [HttpGet]
         public IHttpActionResult GetDeclawedCats()
         {
-            List<CatTable> declawedList = new List<CatTable>();
-            foreach (CatTable cat in _cat.Cats)
+            List<DomesticTable> declawedList = new List<DomesticTable>();
+            foreach (DomesticTable cat in _domestic.Domestics)
             {
                 if (cat.IsDeclawed == true)
                 {
