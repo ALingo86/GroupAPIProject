@@ -219,6 +219,7 @@
     <Compile Include="Models\Shelter.cs" />
     <Compile Include="Models\CatTable.cs" />
     <Compile Include="Models\PetAdopterDbContext.cs" />
+    <Compile Include="Models\AdoptorTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
