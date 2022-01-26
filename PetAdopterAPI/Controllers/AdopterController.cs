@@ -16,7 +16,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class AdopterController : ApiController
     {
-        private readonly PetAdopterDbContext _context = new PetAdopterDbContext();
+        private readonly ApplicationDbContext _context = new ApplicationDbContext();
 
 
         //Post(Create)
@@ -29,7 +29,7 @@ namespace PetAdopterAPI.Controllers
             }
             if (ModelState.IsValid)
             {
-                _context.Adopters.Add(model);
+                _context.Adopter.Add(model);
                 int changeCount = await _context.SaveChangesAsync();
             }
             return BadRequest(ModelState);
@@ -47,7 +47,7 @@ namespace PetAdopterAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetById([FromUri] int id)
         {
-            AdopterTable adopter = await _context.Adopters.FindAsync(id);
+            AdopterTable adopter = await _context.Adopter.FindAsync(id);
 
             if (adopter != null)
             {
@@ -67,7 +67,7 @@ namespace PetAdopterAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            AdopterTable adopter = await _context.Adopters.FindAsync(id);
+            AdopterTable adopter = await _context.Adopter.FindAsync(id);
 
             if (adopter is null)
                 return NotFound();
@@ -88,11 +88,11 @@ namespace PetAdopterAPI.Controllers
         [HttpDelete]
         public async Task<IHttpActionResult> DeleteAdopter([FromUri] int id)
         {
-            AdopterTable adopter = await _context.Adopters.FindAsync(id);
+            AdopterTable adopter = await _context.Adopter.FindAsync(id);
             if (adopter is null)
                 return NotFound();
 
-            _context.Adopters.Remove(adopter);
+            _context.Adopter.Remove(adopter);
 
             if (await _context.SaveChangesAsync() == 1)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
             {

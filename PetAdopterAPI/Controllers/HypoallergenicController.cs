@@ -11,7 +11,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class HypoallergenicController : ApiController
     {
-        private readonly PetAdopterDbContext _dog = new PetAdopterDbContext();
+        private readonly ApplicationDbContext _dog = new ApplicationDbContext();
 
         // GET by HypoAllergenic
         // api/Dogs/{isHypoallergenic}
@@ -19,8 +19,8 @@ namespace PetAdopterAPI.Controllers
         public IHttpActionResult GetHypo()
         {
             
-            List<DogTable> hypoDogs = new List<DogTable>();
-            foreach (DogTable dog in _dog.Dogs)
+            List<DomesticTable> hypoDogs = new List<DomesticTable>();
+            foreach (DomesticTable dog in _dog.Domestics)
             {
                 if (dog.IsHypoallergenic == true)
                 {
