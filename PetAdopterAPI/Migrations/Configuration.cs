@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<PetAdopterAPI.Models.PetAdopterDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<PetAdopterAPI.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(PetAdopterAPI.Models.PetAdopterDbContext context)
+        protected override void Seed(PetAdopterAPI.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

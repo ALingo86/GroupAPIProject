@@ -12,7 +12,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class DomesticController : ApiController
     {
-        private readonly PetAdopterDbContext _domestic = new PetAdopterDbContext();
+        private readonly ApplicationDbContext _domestic = new ApplicationDbContext();
 
         // POST (create)
         // api/Domestic
@@ -107,6 +107,7 @@ namespace PetAdopterAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            // Find the dog in the database
             // Find the pet in the database
             DomesticTable domestic = await _domestic.Domestics.FindAsync(id);
 

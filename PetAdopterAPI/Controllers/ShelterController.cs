@@ -12,7 +12,7 @@ namespace PetAdopterAPI.Controllers
 {
     public class ShelterController : ApiController
     {
-        private readonly PetAdopterDbContext _context = new PetAdopterDbContext();
+        private readonly ApplicationDbContext _context = new ApplicationDbContext();
 
 
         //Post(Create)
