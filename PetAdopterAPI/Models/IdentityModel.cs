@@ -23,35 +23,7 @@ namespace PetAdopterAPI.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false) { }
-
-        public DbSet<DomesticTable> Domestics { get; set; }
-        public DbSet<ExoticTable> Exotics { get; set; }
-        public DbSet<Shelter> Shelters { get; set; }
-
-
-
-
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-
-        public DbSet<AdopterTable> Adopter { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .Conventions
-                .Remove<PluralizingTableNameConvention>();
-
-            modelBuilder
-                .Configurations
-                .Add(new IdentityUserLoginConfiguration())
-                .Add(new IdentityUserRoleConfiguration());
-        }
-    }
+   
 
 
 

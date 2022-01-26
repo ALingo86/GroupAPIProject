@@ -383,6 +383,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application.Data.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -430,10 +431,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201261712521_fixed data source.cs" />
+    <Compile Include="Migrations\202201261712521_fixed data source.designer.cs">
+      <DependentUpon>202201261712521_fixed data source.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\IdentityModel.cs" />
-    <Compile Include="Models\Startup.Auth.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Models\AccountBinding.cs" />
     <Compile Include="Models\DomesticTable.cs" />
     <Compile Include="Models\ExoticTable.cs" />
@@ -528,6 +533,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202201251637494_Initial Migration.resx">
       <DependentUpon>202201251637494_Initial Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201261712521_fixed data source.resx">
+      <DependentUpon>202201261712521_fixed data source.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

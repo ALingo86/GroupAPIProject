@@ -28,6 +28,7 @@ namespace PetAdopterAPI.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
+
         public AccountController()
         {
         }
@@ -330,7 +331,7 @@ namespace PetAdopterAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            ApplicationUser user = new ApplicationUser() { UserName=model.Email, Email = model.Email};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
