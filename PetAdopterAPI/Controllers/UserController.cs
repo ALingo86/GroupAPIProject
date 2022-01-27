@@ -19,6 +19,7 @@ using PetAdopterAPI.Models;
 using PetAdopterAPI.Providers;
 using PetAdopterAPI.Results;
 
+
 namespace PetAdopterAPI.Controllers
 {
     [Authorize]
@@ -28,9 +29,7 @@ namespace PetAdopterAPI.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
-        public AccountController()
-        {
-        }
+        public AccountController(){}
 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
@@ -332,7 +331,7 @@ namespace PetAdopterAPI.Controllers
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
             {

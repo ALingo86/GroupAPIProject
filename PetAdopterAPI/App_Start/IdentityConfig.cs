@@ -40,10 +40,5 @@ namespace PetAdopterAPI.App_Start
             }
             return manager;
         }
-
-        internal Task<ApplicationUser>FindAsync(string userName, string password)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
